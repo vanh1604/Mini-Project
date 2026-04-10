@@ -1,0 +1,19 @@
+diff --git a/node_modules/react-native-splash-screen/ios/RNSplashScreen.m b/node_modules/react-native-splash-screen/ios/RNSplashScreen.m
+index 02bf3e5..75ad58c 100644
+--- a/node_modules/react-native-splash-screen/ios/RNSplashScreen.m
++++ b/node_modules/react-native-splash-screen/ios/RNSplashScreen.m
+@@ -34,7 +34,13 @@ + (void)show {
+ 
+ + (void)showSplash:(NSString*)splashScreen inRootView:(UIView*)rootView {
+     if (!loadingView) {
+-        loadingView = [[[NSBundle mainBundle] loadNibNamed:splashScreen owner:self options:nil] objectAtIndex:0];
++        @try {
++            loadingView = [[[NSBundle mainBundle] loadNibNamed:splashScreen owner:self options:nil] objectAtIndex:0];
++        }
++        @catch (NSException *exception) {
++            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:splashScreen bundle:nil];
++            loadingView = [storyboard instantiateInitialViewController].view;
++        }
+         CGRect frame = rootView.frame;
+         frame.origin = CGPointMake(0, 0);
+         loadingView.frame = frame;

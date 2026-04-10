@@ -29,6 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       launchOptions: launchOptions
     )
 
+    if let rootView = window?.rootViewController?.view {
+      RNSplashScreen.showSplash("LaunchScreen", inRootView: rootView)
+    }
+
     return true
   }
 }
