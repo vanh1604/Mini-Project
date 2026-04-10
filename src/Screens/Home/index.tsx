@@ -155,7 +155,7 @@ const HomeScreen: React.FC = () => {
             action={
               <TouchableOpacity
                 style={styles.actionContainer}
-                onPress={() => showSuccessToast('Hello')}
+                onPress={() => showSuccessToast('Hello', 'success')}
               >
                 <Text style={styles.action}>Xem thêm </Text>
                 <Image
