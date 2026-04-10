@@ -43,7 +43,6 @@ export const LogoutBottomSheet = forwardRef<
       backgroundStyle={styles.bottomSheetBackground}
     >
       <BottomSheetView style={styles.container}>
-        {/* Illustration */}
         <View style={styles.imageContainer}>
           <Image
             source={require('../../../Assets/Images/logout.png')}
@@ -52,7 +51,6 @@ export const LogoutBottomSheet = forwardRef<
           />
         </View>
 
-        {/* Title & Message */}
         <View style={styles.textContainer}>
           <CustomText
             variant="bold"
