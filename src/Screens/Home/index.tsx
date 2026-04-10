@@ -27,6 +27,7 @@ import Utilities from './Components/ultilities';
 
 import { scale } from '../../Utils/scaling';
 import Notification from './Components/notification';
+import { showSuccessToast } from '../../Utils/toast';
 
 const HomeScreen: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -152,7 +153,10 @@ const HomeScreen: React.FC = () => {
             title="Tin tức & thông báo"
             subTitle="Cập nhật tin tức mới nhất từ Bưu điện Việt Nam"
             action={
-              <TouchableOpacity style={styles.actionContainer}>
+              <TouchableOpacity
+                style={styles.actionContainer}
+                onPress={() => showSuccessToast('Hello')}
+              >
                 <Text style={styles.action}>Xem thêm </Text>
                 <Image
                   source={require('../../Assets/Icons/vector-yellow.png')}
